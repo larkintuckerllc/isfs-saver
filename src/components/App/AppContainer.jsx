@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 const AppContainer = ({ children }) => (
-  <div>
+  <div id="root__app_container">
     {children}
   </div>
 );
