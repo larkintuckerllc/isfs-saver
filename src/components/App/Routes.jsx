@@ -2,14 +2,12 @@ import React, { PropTypes } from 'react';
 import { hashHistory, IndexRoute, Route, Router } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import AppContainer from './AppContainer';
-import Demo from '../Demo';
-import ScreenSaver from '../ScreenSaver';
+import Home from '../Home';
 
 const Routes = (props, { store }) => (
   <Router history={syncHistoryWithStore(hashHistory, store)}>
     <Route path="/" component={AppContainer}>
-      <IndexRoute component={ScreenSaver} />
-      <Route path="demo" component={Demo} />
+      <IndexRoute component={Home} />
     </Route>
   </Router>
 );
