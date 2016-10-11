@@ -5,12 +5,13 @@ import { hashHistory } from 'react-router';
 import thr0wMiddleware from 'thr0w-client-module/lib/thr0wMiddleware';
 import { CHANNELS } from './config';
 import reducers from './reducers';
+import { SET_LAT_LNG } from './ducks/latLng';
 
 export default () => {
   const middlewares = [
     thunk,
     // THR0W INTEGRATION
-    thr0wMiddleware(['@@router/LOCATION_CHANGE'], CHANNELS),
+    thr0wMiddleware([SET_LAT_LNG], CHANNELS),
     // END THR0W INTEGRATION
     routerMiddleware(hashHistory),
   ];

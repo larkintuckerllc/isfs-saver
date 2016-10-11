@@ -11,3 +11,13 @@ export const DIMENSIONS = [{
   spacing: 0,
   margin: 0,
 }];
+export const WAYPOINTS = [{
+  lat: 0,
+  lng: 0,
+}, {
+  lat: 0,
+  lng: 45,
+}];
+export const DURATION = 10;
+export const DELAY = 30;
+export const ZOOM = 5;
