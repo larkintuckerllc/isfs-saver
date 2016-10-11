@@ -39,6 +39,9 @@ module.exports = {
       test: /\.(eot|ttf|wav|mp3)$/,
       loader: 'file-loader',
     }, {
+      test: /node_modules\/.*\.css$/,
+      loaders: ['style', 'css'],
+    }, {
       test: /\.css$/,
       exclude: /node_modules/,
       loaders: ['style', 'css?module'],
