@@ -11,7 +11,6 @@ import * as fromStylesheet from './index.scss';
 
 class Home extends Component {
   componentDidMount() {
-    let i = 0;
     const { channel, latLng, setLatLng } = this.props;
     const frameEl = document.getElementById(fromStylesheet.frame);
     const frameContentEl = document.getElementById(fromStylesheet.frameContent);
@@ -27,10 +26,14 @@ class Home extends Component {
       attribution: DAY_TILES_ATTRIBUTION,
       maxZoom: 18,
     }).addTo(this.map);
-    window.setInterval(() => {
-      i = i < WAYPOINTS.length - 1 ? i + 1 : 0;
-      setLatLng(WAYPOINTS[i]);
-    }, DELAY * 1000);
+    window.console.log(channel);
+    if (channel === 0) {
+      let i = 0;
+      window.setInterval(() => {
+        i = i < WAYPOINTS.length - 1 ? i + 1 : 0;
+        setLatLng(WAYPOINTS[i]);
+      }, DELAY * 1000);
+    }
   }
   componentWillReceiveProps({ latLng }) {
     this.map.panTo(
