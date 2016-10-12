@@ -4,7 +4,8 @@ import { getChannel } from 'thr0w-client-module/lib/ducks/channel';
 import { grid } from 'thr0w-client-module/lib/grid';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { DELAY, DURATION, MATRIX, DIMENSIONS, WAYPOINTS, ZOOM } from '../../config';
+import { DAY_TILES_URL, DAY_TILES_ATTRIBUTION, DELAY, DURATION, MATRIX,
+  DIMENSIONS, WAYPOINTS, ZOOM } from '../../config';
 import * as fromLatLng from '../../ducks/latLng';
 import * as fromStylesheet from './index.scss';
 
@@ -15,9 +16,15 @@ class Home extends Component {
     const frameEl = document.getElementById(fromStylesheet.frame);
     const frameContentEl = document.getElementById(fromStylesheet.frameContent);
     grid(channel, frameEl, frameContentEl, MATRIX, DIMENSIONS);
-    this.map = L.map(fromStylesheet.frameContent).setView([latLng.lat, latLng.lng], ZOOM);
-    L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    this.map = L.map(
+      fromStylesheet.frameContent,
+      {
+        zoomControl: false,
+        attributionControl: false,
+      }
+    ).setView([latLng.lat, latLng.lng], ZOOM);
+    L.tileLayer(DAY_TILES_URL, {
+      attribution: DAY_TILES_ATTRIBUTION,
       maxZoom: 18,
     }).addTo(this.map);
     window.setInterval(() => {
