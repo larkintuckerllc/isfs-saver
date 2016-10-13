@@ -1,6 +1,6 @@
 {
   "name": "isfs-saver",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Screen Saver",
   "scripts": {
     "dist": "NODE_ENV=production webpack -p -d source-map",
