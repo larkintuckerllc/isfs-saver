@@ -35,15 +35,24 @@ export const DIMENSIONS = [
   },
 ];
 export const WAYPOINTS = [{
-  lat: 0,
+  lat: 36,
+  lng: -114,
+}, {
+  lat: 40,
+  lng: -6,
+}, {
+  lat: 24,
+  lng: 88,
+}, {
+  lat: 6,
   lng: 0,
 }, {
-  lat: 0,
-  lng: 45,
+  lat: -12,
+  lng: -60,
 }];
-export const DURATION = 10;
-export const DELAY = 30;
-export const ZOOM = 5;
+export const DURATION = 30;
+export const DELAY = 40;
+export const ZOOM = 7;
 export const DAY_TILES_URL = 'http://192.168.1.2:8080/satellite/{z}/{y}/{x}';
 // eslint-disable-next-line
 export const DAY_TILES_ATTRIBUTION = 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community';
