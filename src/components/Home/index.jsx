@@ -7,16 +7,16 @@ import 'leaflet/dist/leaflet.css';
 import { DAY_TILES_URL, DAY_TILES_ATTRIBUTION, DELAY, DURATION, MATRIX,
   DIMENSIONS, WAYPOINTS, ZOOM } from '../../config';
 import * as fromLatLng from '../../ducks/latLng';
-import * as fromStylesheet from './index.scss';
+import styles from './index.scss';
 
 class Home extends Component {
   componentDidMount() {
     const { channel, latLng, setLatLng } = this.props;
-    const frameEl = document.getElementById(fromStylesheet.frame);
-    const frameContentEl = document.getElementById(fromStylesheet.frameContent);
+    const frameEl = document.getElementById(styles.frame);
+    const frameContentEl = document.getElementById(styles.frameContent);
     grid(channel, frameEl, frameContentEl, MATRIX, DIMENSIONS);
     this.map = L.map(
-      fromStylesheet.frameContent,
+      styles.frameContent,
       {
         zoomControl: false,
         attributionControl: false,
@@ -26,7 +26,6 @@ class Home extends Component {
       attribution: DAY_TILES_ATTRIBUTION,
       maxZoom: 18,
     }).addTo(this.map);
-    window.console.log(channel);
     if (channel === 0) {
       let i = 0;
       window.setInterval(() => {
@@ -46,8 +45,8 @@ class Home extends Component {
   }
   render() {
     return (
-      <div id={fromStylesheet.frame}>
-        <div id={fromStylesheet.frameContent} />
+      <div id={styles.frame}>
+        <div id={styles.frameContent} />
       </div>
     );
   }
